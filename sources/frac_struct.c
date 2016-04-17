@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/17 18:37:26 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/17 19:51:47 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_frac		*frac_init(char *ensemble)
 	frac->xmax = 2;
 	frac->ymin = -2;
 	frac->ymax = 2;
-	frac->amax = 20;
+	frac->amax = 50;
 	frac->k = 10;
 	frac->zoom = 1;
 	frac->size = 600;
