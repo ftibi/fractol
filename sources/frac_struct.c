@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   frac_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/12 11:51:45 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/17 18:42:21 by tfolly           ###   ########.fr       */
+/*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
+/*   Updated: 2016/04/17 18:37:26 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	tuto(void)
-{
-	ft_putendl("options available : mandelbrot julia");
-	exit(0);
-}
-
-int		main(int ac, char **av)
+t_frac		*frac_init(char *ensemble)
 {
 	t_frac	*frac;
 
-	if (ac != 2 || (ft_strcmp(av[1], "mandelbrot") && ft_strcmp(av[1], "julia")))
-		tuto();
-	frac = frac_init(av[1]);
-	frac_display(frac);
-	return (0);
+	if(!(frac = (t_frac*)ft_memalloc(sizeof(t_frac))))
+		return (0);
+	frac->xmin = -2;
+	frac->xmax = 2;
+	frac->ymin = -2;
+	frac->ymax = 2;
+	frac->amax = 20;
+	frac->k = 10;
+	frac->zoom = 1;
+	frac->size = 600;
+	ensemble++; //a utiliser
+	return (frac);
 }
+
+
+

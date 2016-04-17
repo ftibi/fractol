@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:29:59 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/17 17:16:43 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/17 18:10:20 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ int		my_key_funct(int keycode)
 		ft_putendl("exit");
 		exit(0);
 	}
+	return (0);
+}
+
+int		my_mouse_funct(int button, int x, int y, void *param)
+{
+	ft_putstr("button : ");
+	ft_putnbr(button);
+	ft_putchar('\n');
+	ft_putstr("pos x : ");
+	ft_putnbr(x);
+	ft_putstr(" pos y : ");
+	ft_putnbr(y);
+	ft_putchar('\n');
 	return (0);
 }
 
@@ -43,10 +56,12 @@ int		main()
 	double z2;
 
 	float a;
-	float amax = 20;
+	float amax = 50;
 
 	float k = 4;
 	float rz2;
+
+	double zoom = 1;
 
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, size, size, "fractol");
@@ -56,10 +71,14 @@ int		main()
 		y = 0;
 		while (y < size)
 		{
-			rz = xmin + x * (xmax - xmin) / size;
-			iz = ymin + y * (ymax - ymin) / size;
-			rc = rz;
-			ic = iz;
+			rz = xmin + x * (xmax - xmin) / size * zoom;
+			iz = ymin + y * (ymax - ymin) / size * zoom;
+			//ensemble de mandelbrot
+			//rc = rz;
+			//ic = iz;
+			//ensemble de julia
+			rc = 0.285;
+			ic = 0.01;
 			z2 = rz * rz + iz * iz;
 			a = 0;
 			while (a <= amax && z2 <= k)
@@ -79,6 +98,7 @@ int		main()
 		x++;
 	}
 	mlx_key_hook(win, my_key_funct, 0);
+	mlx_mouse_hook(win, my_mouse_funct, 0);
 	mlx_loop(mlx);
 	return (0);
 }
