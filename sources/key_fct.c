@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 16:51:23 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 18:57:37 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ t_frac	*recenter(t_frac *frac, int x, int y)
 	ymin = (frac->ymin + y * (frac->ymax - frac->ymin) / frac->size) - (frac->ymax - frac->ymin) / 2;
 	ymax = (frac->ymin + y * (frac->ymax - frac->ymin) / frac->size) + (frac->ymax - frac->ymin) / 2;
 	zoom = frac->zoom;
+	printf("avt frac %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
 	frac = frac_init(frac->ens, frac->mlx, frac->win);
 	frac->xmin = xmin;	
 	frac->xmax = xmax;	
 	frac->ymin = ymin;	
 	frac->ymax = ymax;	
 	frac->zoom = zoom;
+	printf("ap  frac %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
 //	mlx_clear_window(frac->mlx, frac->win);
 //	aff_frac(frac);
 	return (frac);
@@ -72,27 +74,32 @@ int		my_key_funct(int keycode, t_frac *frac)
 
 int		my_mouse_funct(int button, int x, int y, t_frac *frac)
 {
-	ft_putstr("button : ");
-	ft_putnbr(button);
-	ft_putchar('\n');
-	ft_putstr("pos x : ");
-	ft_putnbr(x);
-	ft_putstr(" pos y : ");
-	ft_putnbr(y);
-	ft_putchar('\n');
+//	ft_putstr("button : ");
+//	ft_putnbr(button);
+//	ft_putchar('\n');
+//	ft_putstr("pos x : ");
+//	ft_putnbr(x);
+//	ft_putstr(" pos y : ");
+//	ft_putnbr(y);
+//	ft_putchar('\n');
+//	printf(" mouse %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
+	frac->offx = x - frac->size / 2;
+	frac->offy = y - frac->size / 2;
+	printf(" mouse %f %d %d  %d %d\n", frac->zoom,x, y, frac->offx, frac->offy);
 	if (button == 7)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
-		frac = recenter(frac, x, y);
-		frac->zoom += 0.5;
+		if (frac->zoom <= 0.5)
+			frac->zoom *= 2;
+		else
+			frac->zoom += 0.5;
 		aff_frac(frac);
 	}
 	else if (button == 6)
 	{
 		
 		mlx_clear_window(frac->mlx, frac->win);
-		frac = recenter(frac, x, y);
-		if (frac->zoom <= 0.5)
+				if (frac->zoom <= 0.5)
 		{
 			frac->zoom = frac->zoom / 2.;
 		}
@@ -107,7 +114,7 @@ int		my_mouse_funct(int button, int x, int y, t_frac *frac)
 		ft_putchar('\n');
 		mlx_clear_window(frac->mlx, frac->win);
 		frac = recenter(frac, x, y);
-		frac = aff_frac(frac);
+		aff_frac(frac);
 	}
 	return (0);
 }

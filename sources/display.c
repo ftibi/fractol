@@ -6,37 +6,29 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 16:56:05 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 19:12:48 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-t_frac		*aff_frac(t_frac *frac)
+void	aff_frac(t_frac *frac)
 {
 	double	x;
 	double	y;
 	int		a;
 
-ft_putnbr(frac->xmin);
-ft_putchar('\n');
-ft_putnbr(frac->xmax);
-ft_putchar('\n');
-ft_putnbr(frac->ymin);
-ft_putchar('\n');
-ft_putnbr(frac->ymax);
-ft_putchar('\n');
-
+//printf("aff_frac %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
+	
 	x = 0;
 	while (x < frac->size)
 	{
 		y = 0;
 		while (y < frac->size)
 		{
-			frac->rz = (frac->xmin + x * (frac->xmax - frac->xmin)
-				/ frac->size); //* frac->zoom;
-			frac->iz = (frac->ymin + y * (frac->ymax - frac->ymin)
-				/ frac->size);// * frac->zoom;
+			frac->rz = (frac->xmin + (x - frac->offx) * (frac->xmax - frac->xmin)
+				/ frac->size) * frac->zoom;
+			frac->iz = (frac->ymin + (y - frac->offy) * (frac->ymax - frac->ymin)
+				/ frac->size) * frac->zoom;
 			//ensemble de mandelbrot
 			//rc = rz;
 			//ic = iz;
@@ -61,14 +53,16 @@ ft_putchar('\n');
 		}
 		x++;
 	}
-	return (frac);
 }
 
-void		frac_display(t_frac *frac)
+void		frac_display(char *str)
 {
+	t_frac *frac;
+
+	frac = frac_init(str, 0 , 0);
 	frac->mlx = mlx_init();
 	frac->win = mlx_new_window(frac->mlx, frac->size, frac->size, "fractol");
-	frac = aff_frac(frac);
+	aff_frac(frac);
 	mlx_key_hook(frac->win, my_key_funct, frac);
 	mlx_mouse_hook(frac->win, my_mouse_funct, frac);
 	mlx_loop(frac->mlx);

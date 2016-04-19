@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 15:59:07 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 18:16:45 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ t_frac		*frac_init(char *ensemble, void *mlx, void *win)
 	frac->zoom = 1;
 	frac->mlx = mlx;
 	frac->win = win;
+
+	frac->offx = 0;
+	frac->offy = 0;
+
 	
 	frac->ens = ensemble;
 	return (frac);
