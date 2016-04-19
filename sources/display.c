@@ -6,17 +6,26 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 12:22:29 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 16:56:05 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void		aff_frac(t_frac *frac)
+t_frac		*aff_frac(t_frac *frac)
 {
 	double	x;
 	double	y;
 	int		a;
+
+ft_putnbr(frac->xmin);
+ft_putchar('\n');
+ft_putnbr(frac->xmax);
+ft_putchar('\n');
+ft_putnbr(frac->ymin);
+ft_putchar('\n');
+ft_putnbr(frac->ymax);
+ft_putchar('\n');
 
 	x = 0;
 	while (x < frac->size)
@@ -25,9 +34,9 @@ void		aff_frac(t_frac *frac)
 		while (y < frac->size)
 		{
 			frac->rz = (frac->xmin + x * (frac->xmax - frac->xmin)
-				/ frac->size) * frac->zoom;
+				/ frac->size); //* frac->zoom;
 			frac->iz = (frac->ymin + y * (frac->ymax - frac->ymin)
-				/ frac->size) * frac->zoom;
+				/ frac->size);// * frac->zoom;
 			//ensemble de mandelbrot
 			//rc = rz;
 			//ic = iz;
@@ -52,13 +61,14 @@ void		aff_frac(t_frac *frac)
 		}
 		x++;
 	}
+	return (frac);
 }
 
 void		frac_display(t_frac *frac)
 {
 	frac->mlx = mlx_init();
 	frac->win = mlx_new_window(frac->mlx, frac->size, frac->size, "fractol");
-	aff_frac(frac);
+	frac = aff_frac(frac);
 	mlx_key_hook(frac->win, my_key_funct, frac);
 	mlx_mouse_hook(frac->win, my_mouse_funct, frac);
 	mlx_loop(frac->mlx);

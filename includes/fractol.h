@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 12:22:43 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 16:58:05 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ typedef struct		s_frac
 	double			xmax;
 	double			ymin;
 	double			ymax;
-
-//	double			x;
-//	double			y;
 
 	double			rc;
 	double			ic;
@@ -52,8 +49,8 @@ typedef struct		s_frac
 
 t_frac				*frac_init(char* ens, void *mlx, void *win);
 void				frac_display(t_frac *frac);
-void				aff_frac(t_frac *frac);
+t_frac				*aff_frac(t_frac *frac);
 
-int		my_mouse_funct(int button, int x, int y, t_frac *frac);
-int		my_key_funct(int keycode, t_frac *param);
+int					my_mouse_funct(int button, int x, int y, t_frac *frac);
+int					my_key_funct(int keycode, t_frac *param);
 #endif
