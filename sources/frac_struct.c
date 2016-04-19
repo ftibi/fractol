@@ -6,13 +6,13 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/17 19:51:47 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 12:23:06 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-t_frac		*frac_init(char *ensemble)
+t_frac		*frac_init(char *ensemble, void *mlx, void *win)
 {
 	t_frac	*frac;
 
@@ -22,11 +22,13 @@ t_frac		*frac_init(char *ensemble)
 	frac->xmax = 2;
 	frac->ymin = -2;
 	frac->ymax = 2;
-	frac->amax = 50;
+	frac->amax = 200;
 	frac->k = 10;
 	frac->zoom = 1;
 	frac->size = 600;
-	ensemble++; //a utiliser
+	frac->ens = ensemble;
+	frac->mlx = mlx;
+	frac->win = win;
 	return (frac);
 }
 

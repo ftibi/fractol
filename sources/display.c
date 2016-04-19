@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/17 19:53:55 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/19 12:22:29 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void		aff_frac(t_frac *frac)
 		y = 0;
 		while (y < frac->size)
 		{
-			frac->rz = frac->xmin + x * (frac->xmax - frac->xmin)
-				/ frac->size * frac->zoom;
-			frac->iz = frac->ymin + y * (frac->ymax - frac->ymin)
-				/ frac->size * frac->zoom;
+			frac->rz = (frac->xmin + x * (frac->xmax - frac->xmin)
+				/ frac->size) * frac->zoom;
+			frac->iz = (frac->ymin + y * (frac->ymax - frac->ymin)
+				/ frac->size) * frac->zoom;
 			//ensemble de mandelbrot
 			//rc = rz;
 			//ic = iz;
