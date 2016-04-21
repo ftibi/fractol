@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:29:59 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/21 17:43:32 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/21 18:11:15 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,10 @@
 #define EnterNotify 7//entre ou sort de la fenetre, a utiliser ou pas ?
 #define LeaveNotify 8		
 
-int		mouse_pos(void *mlx, void *win)
+int		mouse_pos(int x, int y, void *param)//fonction qui permet de recuperer la pos de la souris
 {
-	int x,y;
-
-	XQueryPointer(mlx, win, win, win, root_x_return, root_y_return, 
-			                     &x, &y, 0)
-
 	ft_putnbr(x);
-	ft_putchar('\n');
+	ft_putstr(" : ");
 	ft_putnbr(y);
 	ft_putchar('\n');
 	return (0);

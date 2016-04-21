@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/21 16:09:48 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/21 18:13:44 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void		frac_display(char *str)
 	aff_frac(frac);
 	mlx_key_hook(frac->win, my_key_funct, frac);
 	mlx_mouse_hook(frac->win, my_mouse_funct, frac);
+	mlx_hook(frac->win, MotionNotify, PointerMotionMask, mouse_pos, frac);
 	mlx_loop(frac->mlx);
 }

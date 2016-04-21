@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 18:57:37 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/21 18:14:39 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ int		my_key_funct(int keycode, t_frac *frac)
 		frac = frac_init(frac->ens, frac->mlx, frac->win);
 		aff_frac(frac);
 	}
+	return (0);
+}
+
+int		mouse_pos(int x, int y, t_frac *frac)
+{
+	frac++;
+	ft_putnbr(x); ft_putchar(':'); ft_putnbr(y);
+	ft_putendl("on a encore bouge");
 	return (0);
 }
 

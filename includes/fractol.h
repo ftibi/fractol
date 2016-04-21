@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 18:56:06 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/21 18:15:32 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -18,6 +18,8 @@
 # include "mlx.h"
 # include <math.h>
 # include <fcntl.h>
+# define PointerMotionMask (1L<<6)
+# define MotionNotify 6
 
 typedef struct		s_frac
 {
@@ -48,6 +50,8 @@ typedef struct		s_frac
 	int				offx;
 	int				offy;
 
+	int				paramchang;	
+
 }					t_frac;
 
 t_frac				*frac_init(char* ens, void *mlx, void *win);
@@ -56,4 +60,5 @@ void				aff_frac(t_frac *frac);
 
 int					my_mouse_funct(int button, int x, int y, t_frac *frac);
 int					my_key_funct(int keycode, t_frac *param);
+int					mouse_pos(int x, int y, t_frac *frac);
 #endif
