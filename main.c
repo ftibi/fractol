@@ -6,11 +6,31 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:29:59 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/19 16:03:20 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/21 17:43:32 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../libft/includes/libft.h"
+#include "mlx.h"
+#define PointerMotionMask (1L<<6)	
+#define MotionNotify 6	
+
+#define EnterNotify 7//entre ou sort de la fenetre, a utiliser ou pas ?
+#define LeaveNotify 8		
+
+int		mouse_pos(void *mlx, void *win)
+{
+	int x,y;
+
+	XQueryPointer(mlx, win, win, win, root_x_return, root_y_return, 
+			                     &x, &y, 0)
+
+	ft_putnbr(x);
+	ft_putchar('\n');
+	ft_putnbr(y);
+	ft_putchar('\n');
+	return (0);
+}
 
 int		my_key_funct(int keycode)
 {
@@ -37,6 +57,8 @@ int		my_mouse_funct(int button, int x, int y, void *param)
 
 int		main()
 {
+	int x_event, x_mask;
+
 	void 	*mlx;
 	void 	*win;
 	float	size = 800;
@@ -99,6 +121,7 @@ int		main()
 	}
 	mlx_key_hook(win, my_key_funct, 0);
 	mlx_mouse_hook(win, my_mouse_funct, 0);
+	mlx_hook(win, MotionNotify, PointerMotionMask, mouse_pos, 0);
 	mlx_loop(mlx);
 	return (0);
 }

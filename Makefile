@@ -48,7 +48,7 @@ norme:
 
 test: $(LIB) 
 	rm -fv test
-	$(CC) -o test  main.c $(CPPFLAGS) $(MLXFLAGS) libft.a
+	$(CC) -o test  main.c $(MLXFLAGS) libft.a
 	./test
 
 print: $(LIB)
