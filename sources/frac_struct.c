@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/24 17:46:24 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/24 18:13:58 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_frac		*frac_init(char *ensemble, void *mlx, void *win)
 
 	frac->juliax = 0.285;
 	frac->juliay = 0.01;
+	frac->juliamove = 1;
 
 	frac->ens = ft_strdup(ensemble);
 

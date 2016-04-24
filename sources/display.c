@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/24 17:45:15 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/24 17:56:43 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	aff_frac_julia(void *frac2)
 			//rc = rz;
 			//ic = iz;
 			//ensemble de julia
-			frac->rc = 0.285;
-			frac->ic = 0.01;
+			frac->rc = frac->juliax;
+			frac->ic = frac->juliay;
 			frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
 			a = 0;
 			while (a <= frac->amax && frac->z2 <= frac->k)

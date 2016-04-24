@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/24 17:45:50 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/24 18:13:15 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -53,6 +53,7 @@ struct		s_frac
 
 	double			juliax;
 	double			juliay;
+	int				juliamove;
 
 	int				paramchange; //a utiliser pour Julia
 	frac_fct_ptr	*aff_frac;
