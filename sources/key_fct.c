@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/21 18:14:39 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/24 17:45:16 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		my_key_funct(int keycode, t_frac *frac)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
 		frac = frac_init(frac->ens, frac->mlx, frac->win);
-		aff_frac(frac);
+		frac->aff_frac(frac);
 	}
 	return (0);
 }
@@ -75,8 +75,16 @@ int		my_key_funct(int keycode, t_frac *frac)
 int		mouse_pos(int x, int y, t_frac *frac)
 {
 	frac++;
-	ft_putnbr(x); ft_putchar(':'); ft_putnbr(y);
-	ft_putendl("on a encore bouge");
+	x++;
+	y++;
+//	if (frac->aff_frac == aff_frac_julia)
+//	{
+//		frac->juliax += x;
+//		frac->juliay += y;
+//
+//	}
+//	ft_putnbr(x); ft_putchar(':'); ft_putnbr(y);
+//	ft_putendl(" on a encore bouge");
 	return (0);
 }
 
@@ -91,9 +99,9 @@ int		my_mouse_funct(int button, int x, int y, t_frac *frac)
 //	ft_putnbr(y);
 //	ft_putchar('\n');
 //	printf(" mouse %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
-	frac->offx = x - frac->size / 2;
-	frac->offy = y - frac->size / 2;
-	printf(" mouse %f %d %d  %d %d\n", frac->zoom,x, y, frac->offx, frac->offy);
+	frac->offx = (double)x;
+	frac->offy = (double)y;
+	printf(" mouse %f %d %d  %f %f\n", frac->zoom,x, y, frac->offx, frac->offy);
 	if (button == 7)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
@@ -101,28 +109,23 @@ int		my_mouse_funct(int button, int x, int y, t_frac *frac)
 			frac->zoom *= 2;
 		else
 			frac->zoom += 0.5;
-		aff_frac(frac);
+		frac->aff_frac(frac);
 	}
 	else if (button == 6)
 	{
 		
 		mlx_clear_window(frac->mlx, frac->win);
-				if (frac->zoom <= 0.5)
-		{
-			frac->zoom = frac->zoom / 2.;
-		}
-		else
-			frac->zoom -= 0.5;
-		aff_frac(frac);
+		frac->zoom = frac->zoom / 2.;
+		frac->aff_frac(frac);
 	}
 	else if (button == 1)
 	{
-		frac->zoom += 1;
+		frac->zoom *= 2;
 		ft_putnbr(frac->zoom);
 		ft_putchar('\n');
 		mlx_clear_window(frac->mlx, frac->win);
 		frac = recenter(frac, x, y);
-		aff_frac(frac);
+		frac->aff_frac(frac);
 	}
 	return (0);
 }
