@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/24 17:56:43 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/24 18:36:48 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	aff_frac_mandel(void *frac2)
 	t_frac	*frac = (t_frac*)frac2;
 	double	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
 
-//printf("aff_frac %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
-	
 	x = 0;
 	ft_putnbr(frac->offx);
 	ft_putchar('\n');
@@ -41,12 +39,8 @@ void	aff_frac_mandel(void *frac2)
 		{
 			frac->rz = (frac->xmin + (x - frac->offx) * q) * frac->zoom;
 			frac->iz = (frac->ymin + (y - frac->offy) * q) * frac->zoom;
-			//ensemble de mandelbrot
 			frac->rc = frac->rz;
 			frac->ic = frac->iz;
-			//ensemble de julia
-		//	frac->rc = 0.285;
-		//	frac->ic = 0.01;
 			frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
 			a = 0;
 			while (a <= frac->amax && frac->z2 <= frac->k)
@@ -77,8 +71,6 @@ void	aff_frac_julia(void *frac2)
 	t_frac	*frac = (t_frac*)frac2;
 	double	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
 
-//printf("aff_frac %f %f %f %f %f\n", frac->zoom, frac->xmin, frac->xmax, frac->ymin, frac->ymax);
-	
 	x = 0;
 	ft_putnbr(frac->offx);
 	ft_putchar('\n');
@@ -90,10 +82,6 @@ void	aff_frac_julia(void *frac2)
 		{
 			frac->rz = (frac->xmin + (x - frac->offx) * q) * frac->zoom;
 			frac->iz = (frac->ymin + (y - frac->offy) * q) * frac->zoom;
-			//ensemble de mandelbrot
-			//rc = rz;
-			//ic = iz;
-			//ensemble de julia
 			frac->rc = frac->juliax;
 			frac->ic = frac->juliay;
 			frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
