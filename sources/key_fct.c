@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/24 18:20:46 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 16:09:38 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,25 @@ int		mouse_pos(int x, int y, t_frac *frac)
 
 int		my_mouse_funct(int button, int x, int y, t_frac *frac)
 {
+	double q = (frac->xmax - frac->xmin) / frac->size;
+
+	frac->xpoint = (double)x * q + frac->xmin;
+	frac->ypoint = (double)y * q + frac->ymin;
 	frac->offx = (double)x;
 	frac->offy = (double)y;
 	printf(" mouse %f %d %d  %f %f\n", frac->zoom,x, y, frac->offx, frac->offy);
 	if (button == 7)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
-		if (frac->zoom <= 0.5)
-			frac->zoom *= 2;
-		else
-			frac->zoom += 0.5;
+		frac->zoom = 2;
+		frac = zoom_frac(frac);
 		frac->aff_frac(frac);
 	}
 	else if (button == 6)
 	{
-		
 		mlx_clear_window(frac->mlx, frac->win);
-		frac->zoom = frac->zoom / 2.;
+		frac->zoom = 0.5;
+		frac = zoom_frac(frac);
 		frac->aff_frac(frac);
 	}
 	else if (button == 1)

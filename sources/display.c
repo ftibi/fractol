@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/24 18:36:48 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 15:59:08 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ double ft_abs(double a)
 	return (a);
 }
 
+t_frac	*zoom_frac(t_frac *frac)
+{
+	double	q;
+
+	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
+	frac->xmin = frac->xpoint - frac->offx * q * frac->zoom;
+	frac->xmax = frac->xmin + q * frac->size * frac->zoom;
+	frac->ymin = frac->ypoint - frac->offy * q * frac->zoom;
+	frac->ymax = frac->ymin + q * frac->size * frac->zoom;
+	frac->zoom = 1;
+	return (frac);
+}
 
 void	aff_frac_mandel(void *frac2)
 {
@@ -26,7 +38,14 @@ void	aff_frac_mandel(void *frac2)
 	double	y;
 	int		a;
 	t_frac	*frac = (t_frac*)frac2;
-	double	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
+	double	q;
+	
+
+	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
+//	frac->xmin = frac->xpoint - frac->offx * q * frac->zoom;
+//	frac->xmax = frac->xmin + q * frac->size * frac->zoom;
+//	frac->ymin = frac->ypoint - frac->offy * q * frac->zoom;
+//	frac->ymax = frac->ymin + q * frac->size * frac->zoom;
 
 	x = 0;
 	ft_putnbr(frac->offx);
@@ -37,8 +56,9 @@ void	aff_frac_mandel(void *frac2)
 		y = 0;
 		while (y < frac->size)
 		{
-			frac->rz = (frac->xmin + (x - frac->offx) * q) * frac->zoom;
-			frac->iz = (frac->ymin + (y - frac->offy) * q) * frac->zoom;
+			frac->rz = (frac->xmin + (x) * q);
+			frac->iz = (frac->ymin + (y) * q);
+			//param de depart pour mandel
 			frac->rc = frac->rz;
 			frac->ic = frac->iz;
 			frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
@@ -80,8 +100,9 @@ void	aff_frac_julia(void *frac2)
 		y = 0;
 		while (y < frac->size)
 		{
-			frac->rz = (frac->xmin + (x - frac->offx) * q) * frac->zoom;
-			frac->iz = (frac->ymin + (y - frac->offy) * q) * frac->zoom;
+			frac->rz = (frac->xmin + (x) * q);
+			frac->iz = (frac->ymin + (y) * q);
+			//param de depart julia
 			frac->rc = frac->juliax;
 			frac->ic = frac->juliay;
 			frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
