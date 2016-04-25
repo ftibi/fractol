@@ -6,20 +6,16 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 16:53:54 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 17:56:13 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
 # include "../libft/includes/libft.h"
 # include "mlx.h"
-# include <math.h>
 # include <fcntl.h>
-# define PointerMotionMask (1L<<6)
-# define MotionNotify 6
 
 typedef void			(t_frac_fct_ptr)(void *frac);
 struct					s_frac
@@ -73,4 +69,5 @@ int						my_key_funct(int keycode, t_frac *param);
 int						mouse_pos(int x, int y, t_frac *frac);
 t_frac					*zoom_frac(t_frac *frac);
 void					ft_error(char *str);
+void					in_loop(t_frac *frac, double x, double y);
 #endif
