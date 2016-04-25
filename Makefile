@@ -44,7 +44,7 @@ re: fclean all
 .PHONY: all, clean, fclean, re, print, test
 
 norme:
-	norminette $(SRC)
+	norminette $(SRC) includes/fractol.h
 
 test: $(LIB) 
 	rm -fv test

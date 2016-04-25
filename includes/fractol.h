@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 15:51:10 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 16:53:54 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -50,7 +50,7 @@ struct					s_frac
 	char				*ens;
 	double				offx;
 	double				offy;
-	
+
 	double				xpoint;
 	double				ypoint;
 
@@ -72,4 +72,5 @@ int						my_mouse_funct(int button, int x, int y, t_frac *frac);
 int						my_key_funct(int keycode, t_frac *param);
 int						mouse_pos(int x, int y, t_frac *frac);
 t_frac					*zoom_frac(t_frac *frac);
+void					ft_error(char *str);
 #endif
