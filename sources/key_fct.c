@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 16:57:34 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 18:27:00 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,25 @@ int		my_key_funct(int keycode, t_frac *frac)
 		frac->aff_frac(frac);
 	}
 	else if (keycode == 38)
+		frac->juliamove = (frac->juliamove) ? 0 : 1;
+	else if (keycode == 40)
 	{
 		frac->juliamove = (frac->juliamove) ? 0 : 1;
+		frac->juliax = 0.285;
+		frac->juliay = 0.01;
+		frac->aff_frac(frac);
 	}
 	return (0);
 }
 
 int		mouse_pos(int x, int y, t_frac *frac)
 {
-	x++;
-	y++;
-	// ici il faudrait faire une equation qui depend
-	// de la pos du curseur sur lecran
 	if (frac->juliamove && frac->aff_frac == aff_frac_julia)
 	{
-		frac->juliax += 0.01;
-		frac->juliay += 0.01;
-		if (frac->juliax > 1)
-		{
-			frac->juliax = 0.285;
-			frac->juliay = 0.01;
-		}
+		frac->juliax = x / 500;
+		frac->juliay = y / 300;
 		frac->aff_frac(frac);
 	}
-	//ft_putnbr(x); ft_putchar(':'); ft_putnbr(y);
 	return (0);
 }
 

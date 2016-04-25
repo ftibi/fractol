@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 17:59:09 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 18:27:08 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void			in_loop(t_frac *frac, double x, double y)
 		if (frac->z2 >= frac->k)
 			mlx_pixel_put(frac->mlx, frac->win, x, y, a / frac->amax
 					* 0xFFFFFF);
-	//	if (a == frac->amax)
-	//		mlx_pixel_put(frac->mlx, frac->win, x, y, 0xFFFFFF);
 		a++;
 	}
 }
