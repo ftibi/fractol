@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   manuel.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/12 11:51:45 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 18:38:03 by tfolly           ###   ########.fr       */
+/*   Created: 2016/04/25 18:34:24 by tfolly            #+#    #+#             */
+/*   Updated: 2016/04/25 18:38:57 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	tuto(void)
+void	manuel(void)
 {
-	ft_putendl("USAGE : ./fractol <parameter>");
-	ft_putendl("parameters available : mandelbrot julia");
-	exit(0);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac != 2 || (ft_strcmp(av[1], "mandelbrot") &&
-				ft_strcmp(av[1], "julia")))
-		tuto();
-	manuel();
-	frac_display(av[1]);
-	return (0);
+	ft_putendl("use mousewheel to zoom in and out");
+	ft_putendl("J   : toggle Julia's parameter change");
+	ft_putendl("K   : reset Julia's parameters");
+	ft_putendl("ESC : exit");
 }

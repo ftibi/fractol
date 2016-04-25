@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 17:56:13 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 18:35:00 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
+# define WIN_SIZE 800
 
 typedef void			(t_frac_fct_ptr)(void *frac);
 struct					s_frac
@@ -70,4 +71,5 @@ int						mouse_pos(int x, int y, t_frac *frac);
 t_frac					*zoom_frac(t_frac *frac);
 void					ft_error(char *str);
 void					in_loop(t_frac *frac, double x, double y);
+void					manuel(void);
 #endif

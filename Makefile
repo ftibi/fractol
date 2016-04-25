@@ -2,7 +2,7 @@ NAME = fractol
 
 SRC_PATH = ./sources
 
-SRC_NAME = fractol.c frac_struct.c display.c key_fct.c frac_fct.c
+SRC_NAME = fractol.c frac_struct.c display.c key_fct.c frac_fct.c manuel.c
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 

@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 18:27:00 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 18:39:09 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int		my_key_funct(int keycode, t_frac *frac)
 {
-	ft_putstr("keycode : ");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
 	if (keycode == 53)
 	{
 		ft_putendl("exit");

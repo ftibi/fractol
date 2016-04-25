@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 17:01:00 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 18:33:00 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_frac			*frac_init(char *ensemble, void *mlx, void *win)
 
 	if (!(frac = (t_frac*)ft_memalloc(sizeof(t_frac))))
 		ft_error("malloc error");
-	frac->size = 600;
+	frac->size = WIN_SIZE;
 	frac->xmin = -2.;
 	frac->xmax = 2.;
 	frac->ymin = -2.;
