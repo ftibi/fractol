@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 15:38:19 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 16:20:35 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_frac		*frac_init(char *ensemble, void *mlx, void *win)
 	frac->z2 = 0;
 	frac->rz2 = 0;
 
-	frac->amax = 200;
+	frac->amax = 50;
 	frac->a = 0;
 
 	frac->k = 10;

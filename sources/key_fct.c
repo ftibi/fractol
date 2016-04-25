@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 16:09:38 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 16:17:09 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int		my_key_funct(int keycode, t_frac *frac)
 {
+	ft_putstr("keycode : ");
+	ft_putnbr(keycode);      	
+	ft_putchar('\n');        
 	if (keycode == 53)
 	{
 		ft_putendl("exit");
 		exit(0);
 	}
-	ft_putstr("keycode : ");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
-	if (keycode == 15)
+	else if (keycode == 15)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
 		frac = frac_init(frac->ens, frac->mlx, frac->win);
 		frac->aff_frac(frac);
 	}
-	if (keycode == 38)
+	else if (keycode == 38)
 	{
 		frac->juliamove = (frac->juliamove) ? 0 : 1;
 	}

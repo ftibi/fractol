@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 15:59:08 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 16:31:11 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ t_frac	*zoom_frac(t_frac *frac)
 	frac->xmax = frac->xmin + q * frac->size * frac->zoom;
 	frac->ymin = frac->ypoint - frac->offy * q * frac->zoom;
 	frac->ymax = frac->ymin + q * frac->size * frac->zoom;
+	if (frac->zoom == 0.5)
+		frac->amax += 10;
+	else
+		frac->amax -= 10;
 	frac->zoom = 1;
 	return (frac);
 }
@@ -42,11 +46,6 @@ void	aff_frac_mandel(void *frac2)
 	
 
 	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
-//	frac->xmin = frac->xpoint - frac->offx * q * frac->zoom;
-//	frac->xmax = frac->xmin + q * frac->size * frac->zoom;
-//	frac->ymin = frac->ypoint - frac->offy * q * frac->zoom;
-//	frac->ymax = frac->ymin + q * frac->size * frac->zoom;
-
 	x = 0;
 	ft_putnbr(frac->offx);
 	ft_putchar('\n');
