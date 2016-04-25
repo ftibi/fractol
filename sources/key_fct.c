@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 18:40:07 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/25 18:54:21 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ int		my_mouse_funct(int button, int x, int y, t_frac *frac)
 	frac->ypoint = (double)y * q + frac->ymin;
 	frac->offx = (double)x;
 	frac->offy = (double)y;
-	if (button == 7)
+	if (button == 7 || button == 4)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
 		frac->zoom = 2;
 		frac = zoom_frac(frac);
 		frac->aff_frac(frac);
 	}
-	else if (button == 6)
+	else if (button == 6 || button == 5)
 	{
 		mlx_clear_window(frac->mlx, frac->win);
 		frac->zoom = 0.5;
