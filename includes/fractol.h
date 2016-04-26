@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 19:07:39 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 19:44:10 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <fcntl.h>
 # include <math.h>
 # define WIN_SIZE 800
-# define AMAX 50
 
 typedef void			(t_frac_fct_ptr)(void *frac);
 struct					s_frac
