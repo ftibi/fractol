@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 16:25:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 20:12:21 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 20:32:00 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void		print_ens(t_ens *ens, t_frac *frac)
 	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
 	while (ens)
 	{
-		x = ens->rz / q;
-		y = ens->iz / q;
+		x = (-frac->xmin + ens->rz) / q;
+		y = (-frac->ymin + ens->iz) / q;
 		mlx_pixel_put(frac->mlx, frac->win, x, y, 0xFFFFFF);
 		ens = ens->next;
 	}
@@ -74,17 +74,6 @@ t_ens		*new_ens(double rz, double iz)
 	return (new);
 }
 
-t_ens		*add_ens(t_ens *ens, t_ens *ens2)
-{
-	t_ens	*tmp;
-
-	tmp = ens;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = ens2;
-	return (ens);
-}
-
 void		aff_dragon(void *frac2)
 {
 	t_frac	*frac;
@@ -97,7 +86,6 @@ void		aff_dragon(void *frac2)
 	ens1 = new_ens(0, 1);
 	ens2 = new_ens(0, 1);
 	frac = (t_frac*)frac2;
-	frac->amax = 15;
 	frac->a = 0;
 	while (frac->a < frac->amax)
 	{

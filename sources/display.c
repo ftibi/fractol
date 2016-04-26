@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 17:32:59 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 20:30:56 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,19 @@ t_frac			*zoom_frac(t_frac *frac)
 	frac->ymin = frac->ypoint - frac->offy * q * frac->zoom;
 	frac->ymax = frac->ymin + q * frac->size * frac->zoom;
 	if (frac->zoom == 0.5)
-		frac->amax += 10;
+	{
+		if (!ft_strcmp(frac->ens, "dragon"))
+			frac->amax++;
+		else
+			frac->amax += 10;
+	}
 	else
-		frac->amax -= 10;
+	{
+		if (!ft_strcmp(frac->ens, "dragon"))
+			frac->amax--;
+		else
+			frac->amax -= 10;
+	}
 	frac->zoom = 1;
 	return (frac);
 }

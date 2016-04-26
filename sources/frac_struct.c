@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 20:10:15 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 20:28:05 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ t_frac			*frac_init(char *ensemble, void *mlx, void *win)
 	frac->z2 = 0;
 	frac->rz2 = 0;
 	frac->amax = 50;
+	if (!ft_strcmp(ensemble, "dragon"))
+		frac->amax = 15;
 	frac->a = 0;
 	frac->k = 10;
 	frac->zoom = 1;
