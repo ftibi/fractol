@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 20:33:43 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 20:35:25 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
-# include <math.h>
 # define WIN_SIZE 800
 
 typedef void			(t_frac_fct_ptr)(void *frac);
