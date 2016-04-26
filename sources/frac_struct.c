@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 18:33:00 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 17:31:59 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static t_frac	*frac_init2(char *ensemble, t_frac *frac)
 		frac->aff_frac = aff_frac_julia;
 	else if (!ft_strcmp(ensemble, "mandelbrot"))
 		frac->aff_frac = aff_frac_mandel;
+	else if (!ft_strcmp(ensemble, "dragon"))
+		frac->aff_frac = aff_dragon;
 	return (frac);
 }
 
@@ -52,7 +54,7 @@ t_frac			*frac_init(char *ensemble, void *mlx, void *win)
 	frac->iz = 0;
 	frac->z2 = 0;
 	frac->rz2 = 0;
-	frac->amax = 50;
+	frac->amax = AMAX;
 	frac->a = 0;
 	frac->k = 10;
 	frac->zoom = 1;

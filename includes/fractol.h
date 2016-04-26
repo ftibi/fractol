@@ -6,9 +6,11 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 16:26:15 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 17:58:33 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
@@ -16,7 +18,9 @@
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
+# include <math.h>
 # define WIN_SIZE 800
+# define AMAX 50
 
 typedef void			(t_frac_fct_ptr)(void *frac);
 struct					s_frac

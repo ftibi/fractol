@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:51:45 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 18:55:40 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 17:16:17 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	tuto(void)
 int			main(int ac, char **av)
 {
 	if (ac != 2 || (ft_strcmp(av[1], "mandelbrot") &&
-				ft_strcmp(av[1], "julia")))
+				ft_strcmp(av[1], "julia") && (ft_strcmp(av[1], "dragon"))))
 		tuto();
 	manuel();
 	frac_display(av[1]);
