@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 18:35:00 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 16:26:15 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_frac					*frac_init(char *ens, void *mlx, void *win);
 void					frac_display(char *av1);
 void					aff_frac_julia(void *frac);
 void					aff_frac_mandel(void *frac);
+void					aff_dragon(void *frac);
 
 int						my_mouse_funct(int button, int x, int y, t_frac *frac);
 int						my_key_funct(int keycode, t_frac *param);
