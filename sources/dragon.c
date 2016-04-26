@@ -6,14 +6,13 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 16:25:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 19:53:28 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/26 20:12:21 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-
-t_ens	*dragon_un(t_ens *ens)
+t_ens		*dragon_un(t_ens *ens)
 {
 	t_ens	*new;
 	t_ens	*start;
@@ -22,14 +21,15 @@ t_ens	*dragon_un(t_ens *ens)
 	start = new;
 	while (ens)
 	{
-		new->next = new_ens(0.5 * (ens->rz - ens->iz), 0.5 * (ens->rz + ens->iz));
+		new->next = new_ens(0.5 * (ens->rz - ens->iz), 0.5 *
+				(ens->rz + ens->iz));
 		new = new->next;
 		ens = ens->next;
 	}
 	return (start);
 }
 
-t_ens	*dragon_deux(t_ens *ens)
+t_ens		*dragon_deux(t_ens *ens)
 {
 	t_ens	*new;
 	t_ens	*start;
@@ -38,14 +38,15 @@ t_ens	*dragon_deux(t_ens *ens)
 	start = new;
 	while (ens)
 	{
-		new->next = new_ens(1 - 0.5 * (ens->rz + ens->iz), 0.5 * (ens->iz - ens->rz));
+		new->next = new_ens(1 - 0.5 * (ens->rz + ens->iz), 0.5 *
+				(ens->iz - ens->rz));
 		new = new->next;
 		ens = ens->next;
 	}
 	return (start);
 }
 
-void	print_ens(t_ens *ens, t_frac *frac)
+void		print_ens(t_ens *ens, t_frac *frac)
 {
 	double	x;
 	double	y;
@@ -61,7 +62,7 @@ void	print_ens(t_ens *ens, t_frac *frac)
 	}
 }
 
-t_ens *new_ens(double rz, double iz)
+t_ens		*new_ens(double rz, double iz)
 {
 	t_ens *new;
 
@@ -73,7 +74,7 @@ t_ens *new_ens(double rz, double iz)
 	return (new);
 }
 
-t_ens *add_ens(t_ens *ens, t_ens *ens2)
+t_ens		*add_ens(t_ens *ens, t_ens *ens2)
 {
 	t_ens	*tmp;
 
@@ -84,19 +85,21 @@ t_ens *add_ens(t_ens *ens, t_ens *ens2)
 	return (ens);
 }
 
-void	aff_dragon(void *frac2)
+void		aff_dragon(void *frac2)
 {
 	t_frac	*frac;
-	int 	a;
 	t_ens	*tmp;
+	t_ens	*ens;
+	t_ens	*ens1;
+	t_ens	*ens2;
 
+	ens = new_ens(0, 1);
+	ens1 = new_ens(0, 1);
+	ens2 = new_ens(0, 1);
 	frac = (t_frac*)frac2;
-	frac->amax = 25;
-	t_ens *ens = new_ens(0, 1);
-	t_ens *ens1 = new_ens(0, 1);
-	t_ens *ens2 = new_ens(0, 1);
-	a = 0;
-	while (a < frac->amax)
+	frac->amax = 15;
+	frac->a = 0;
+	while (frac->a < frac->amax)
 	{
 		ens1 = dragon_un(ens);
 		ens2 = dragon_deux(ens);
@@ -106,6 +109,6 @@ void	aff_dragon(void *frac2)
 			tmp = tmp->next;
 		tmp->next = ens2;
 		print_ens(ens, frac);
-		a++;
+		frac->a++;
 	}
 }
