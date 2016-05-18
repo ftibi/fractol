@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 16:39:36 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 17:34:30 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ struct					s_frac
 	void				*win;
 	void				*img;
 	char				*data;
+	int					bpp;
 
 	char				*ens;
 	double				offx;
@@ -82,5 +83,7 @@ typedef struct			s_ens
 	struct s_ens		*next;
 }						t_ens;
 t_ens					*new_ens(double rz, double iz);
+
+void		my_pixel_put_img(t_frac *frac, int x, int y, int color);
 
 #endif

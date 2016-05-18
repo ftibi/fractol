@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:52:55 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/25 17:57:37 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 17:42:28 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			aff_frac_julia(void *frac2)
 	double	q;
 
 	frac = (t_frac*)frac2;
-	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
+	q = ft_abs((frac->xmax - frac->xmin) / (double)frac->size);
 	x = 0;
 	while (x < frac->size)
 	{
@@ -37,6 +37,7 @@ void			aff_frac_julia(void *frac2)
 		}
 		x++;
 	}
+	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 }
 
 void			aff_frac_mandel(void *frac2)
@@ -47,7 +48,7 @@ void			aff_frac_mandel(void *frac2)
 	double	q;
 
 	frac = (t_frac*)frac2;
-	q = ft_abs((frac->xmax - frac->xmin) / frac->size);
+	q = ft_abs((frac->xmax - frac->xmin) / (double)frac->size);
 	x = 0;
 	while (x < frac->size)
 	{
@@ -64,4 +65,5 @@ void			aff_frac_mandel(void *frac2)
 		}
 		x++;
 	}
+	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 }

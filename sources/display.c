@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 16:53:20 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 17:48:47 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void			in_loop(t_frac *frac, double x, double y)
 		frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
 		color = a / frac->amax * 0xFFFFFF;
 		if (frac->z2 >= frac->k)
-			mlx_pixel_put(frac->mlx, frac->win, x, y, color);
+		{
+			my_pixel_put_img(frac, x, y, color);
+			// mlx_pixel_put(frac->mlx, frac->win, x, y, color);
+		}
 		a++;
 	}
 }
@@ -68,16 +71,15 @@ void			in_loop(t_frac *frac, double x, double y)
 void			frac_display(char *str)
 {
 	t_frac *frac;
-	// int		endian;
-	// int		bpp;
+	int		endian = 0;
 
 	frac = frac_init(str, 0, 0);
 	frac->mlx = mlx_init();
 	frac->win = mlx_new_window(frac->mlx, frac->size, frac->size, "fractol");
-	// frac->img = mlx_new_image(frac->mlx, frac->size, frac->size);
-	// frac->data = mlx_get_data_addr(frac->img, &bpp, (int*)&frac->size, &endian);
+	frac->img = mlx_new_image(frac->mlx, frac->size, frac->size);
+	frac->data = mlx_get_data_addr(frac->img, &frac->bpp, (int*)&frac->size, &endian);
 	frac->aff_frac(frac);
-	//mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
+	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 	mlx_key_hook(frac->win, my_key_funct, frac);
 	mlx_mouse_hook(frac->win, my_mouse_funct, frac);
 	mlx_hook(frac->win, 6, (1L << 6), mouse_pos, frac);

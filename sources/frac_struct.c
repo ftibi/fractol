@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 16:53:06 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 17:38:32 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static t_frac	*frac_init2(char *ensemble, t_frac *frac)
 	frac->ypoint = 0;
 	frac->img = 0;
 	frac->data = 0;
+	frac->bpp = 1;
 	frac->ens = ft_strdup(ensemble);
 	if (!ft_strcmp(ensemble, "julia"))
 		frac->aff_frac = aff_frac_julia;
