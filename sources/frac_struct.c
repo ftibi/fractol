@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 20:03:45 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 20:29:20 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ static t_frac	*frac_init2(char *ensemble, t_frac *frac, void *img)
 	frac->ypoint = 0;
 	frac->img = img;
 	frac->data = 0;
+	int endian = 1;
+	int size_line = frac->size * frac->bpp / 8;
+	if (frac->img)
+		frac->data = mlx_get_data_addr(frac->img, &frac->bpp,&size_line , &endian);
 	frac->bpp = 32;
 	frac->ens = ft_strdup(ensemble);
 	if (!ft_strcmp(ensemble, "julia"))
