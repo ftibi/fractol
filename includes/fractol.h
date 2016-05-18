@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 17:34:30 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 18:42:09 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ struct					s_frac
 typedef struct s_frac	t_frac;
 
 double					ft_abs(double a);
-t_frac					*frac_init(char *ens, void *mlx, void *win);
+t_frac					*frac_init(char *ens, void *mlx, void *win, void *img);
 void					frac_display(char *av1);
 void					aff_frac_julia(void *frac);
 void					aff_frac_mandel(void *frac);

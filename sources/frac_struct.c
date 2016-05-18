@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 17:38:32 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 18:46:54 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			ft_error(char *str)
 	exit(0);
 }
 
-static t_frac	*frac_init2(char *ensemble, t_frac *frac)
+static t_frac	*frac_init2(char *ensemble, t_frac *frac, void *img)
 {
 	frac->offx = 0;
 	frac->offy = 0;
@@ -27,7 +27,7 @@ static t_frac	*frac_init2(char *ensemble, t_frac *frac)
 	frac->juliamove = 1;
 	frac->xpoint = 0;
 	frac->ypoint = 0;
-	frac->img = 0;
+	frac->img = img;
 	frac->data = 0;
 	frac->bpp = 1;
 	frac->ens = ft_strdup(ensemble);
@@ -40,7 +40,7 @@ static t_frac	*frac_init2(char *ensemble, t_frac *frac)
 	return (frac);
 }
 
-t_frac			*frac_init(char *ensemble, void *mlx, void *win)
+t_frac			*frac_init(char *ensemble, void *mlx, void *win, void *img)
 {
 	t_frac	*frac;
 
@@ -65,6 +65,6 @@ t_frac			*frac_init(char *ensemble, void *mlx, void *win)
 	frac->zoom = 1;
 	frac->mlx = mlx;
 	frac->win = win;
-	frac = frac_init2(ensemble, frac);
+	frac = frac_init2(ensemble, frac, img);
 	return (frac);
 }

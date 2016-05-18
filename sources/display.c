@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 17:48:47 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 18:44:04 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,12 @@ t_frac			*zoom_frac(t_frac *frac)
 	return (frac);
 }
 
-void			in_loop(t_frac *frac, double x, double y)
-{
-	int a;
-	int color;
-
-	a = 0;
-	while (a <= frac->amax && frac->z2 <= frac->k)
-	{
-		frac->rz2 = frac->rz;
-		frac->rz = frac->rz * frac->rz - frac->iz * frac->iz + frac->rc;
-		frac->iz = 2 * frac->rz2 * frac->iz + frac->ic;
-		frac->z2 = frac->rz * frac->rz + frac->iz * frac->iz;
-		color = a / frac->amax * 0xFFFFFF;
-		if (frac->z2 >= frac->k)
-		{
-			my_pixel_put_img(frac, x, y, color);
-			// mlx_pixel_put(frac->mlx, frac->win, x, y, color);
-		}
-		a++;
-	}
-}
-
 void			frac_display(char *str)
 {
 	t_frac *frac;
-	int		endian = 0;
+	int		endian = 1;
 
-	frac = frac_init(str, 0, 0);
+	frac = frac_init(str, 0, 0, 0);
 	frac->mlx = mlx_init();
 	frac->win = mlx_new_window(frac->mlx, frac->size, frac->size, "fractol");
 	frac->img = mlx_new_image(frac->mlx, frac->size, frac->size);
