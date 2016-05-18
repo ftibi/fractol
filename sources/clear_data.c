@@ -6,18 +6,18 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 19:29:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 20:03:43 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 20:16:13 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	clear_data(char *data, int size)
+void	clear_data(char *data, int size, int bpp)
 {
 	int	i;
 
 	i = 0;
-	while (i < size * size)
+	while (i < size * size * bpp / 8)
 	{
 		data[i] = 0;
 		i++;
