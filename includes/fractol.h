@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 20:35:25 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/18 16:39:36 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ struct					s_frac
 	double				zoom;
 	void				*mlx;
 	void				*win;
+	void				*img;
+	char				*data;
 
 	char				*ens;
 	double				offx;
