@@ -2,3 +2,5 @@
 - le deplacement avec les fleches n'est pas en partie bonus !
 	il faut le rendre proportionnel au zoom
 	c'est facil vu que mon zoom est basé sur la fenetre (1/10 ? )
+- peut etre que le x4 est du a une taille de mon image mal geree
+	mais pk?
