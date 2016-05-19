@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 13:59:42 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 14:58:32 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int		my_key_funct(int keycode, t_frac *frac)
 		frac->juliamove = (frac->juliamove) ? 0 : 1;
 	else if (keycode == 40)
 	{
-		frac_reset(frac);
+		frac->juliax = 0.285;
+		frac->juliay = 0.01;
 		frac->juliamove = 0;
 		mlx_clear_window(frac->mlx, frac->win);
 		frac->aff_frac(frac);
