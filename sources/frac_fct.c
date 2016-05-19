@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 17:52:55 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 13:13:54 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 13:39:46 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ void			in_loop(t_frac *frac, double x, double y)
 	}
 }
 
-void			aff_frac_julia(t_frac *frac)
+void			aff_frac_julia(void *frac2)
 {
 	double	x;
 	double	y;
 	double	q;
+	t_frac	*frac;
 
+	frac = (t_frac*)frac2;
 	clear_data(frac->data, frac->size, frac->bpp);
 	q = ft_abs((frac->xmax - frac->xmin) / (double)frac->size);
 	x = 0;
@@ -55,16 +57,17 @@ void			aff_frac_julia(t_frac *frac)
 		}
 		x++;
 	}
-	mlx_clear_window(frac->mlx, frac->win);
 	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 }
 
-void			aff_frac_mandel(t_frac *frac)
+void			aff_frac_mandel(void *frac2)
 {
 	double	x;
 	double	y;
 	double	q;
+	t_frac	*frac;
 
+	frac = (t_frac*)frac2;
 	clear_data(frac->data, frac->size, frac->bpp);
 	q = ft_abs((frac->xmax - frac->xmin) / (double)frac->size);
 	x = 0;
@@ -83,6 +86,5 @@ void			aff_frac_mandel(t_frac *frac)
 		}
 		x++;
 	}
-	mlx_clear_window(frac->mlx, frac->win);
 	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 }
