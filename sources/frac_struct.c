@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 17:52:17 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 14:01:03 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 14:13:07 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,23 @@ void			ft_error(char *str)
 	exit(0);
 }
 
+static t_frac	*frac_init3(char *ensemble, t_frac *frac, void *img)
+{
+	frac->color = 0xFFFFFF;
+	frac->endian = 1;
+	frac->offx = 0;
+	frac->offy = 0;
+	ensemble++;
+	img++;
+	return (frac);
+}
+
 static t_frac	*frac_init2(char *ensemble, t_frac *frac, void *img)
 {
 	int size_line;
 
-	frac->color = 0xFFFFFF;
-	frac->endian = 1;
 	size_line = frac->size * frac->bpp / 8;
-	frac->offx = 0;
-	frac->offy = 0;
+	frac = frac_init3(ensemble, frac, img);
 	frac->juliax = 0.285;
 	frac->juliay = 0.01;
 	frac->juliamove = 1;
