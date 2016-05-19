@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 11:59:49 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:40:13 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	frac_reset(t_frac *frac)
 	frac->z2 = 0;
 	frac->rz2 = 0;
 	frac->amax = 50;
+	if (!ft_strcmp(frac->ens, "dragon"))
+		frac->amax = 15;
 	frac->a = 0;
 	frac->k = 10;
 	frac->zoom = 1;

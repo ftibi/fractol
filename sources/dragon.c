@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 16:25:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 12:35:25 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:38:21 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void		aff_dragon(void *frac2)
 	frac = (t_frac*)frac2;
 	clear_data(frac->data, frac->size, frac->bpp);
 	frac->a = 0;
-	ft_putendl("dragon");
 	while (frac->a < frac->amax)
 	{
 		ens1 = dragon_un(ens);
@@ -103,12 +102,9 @@ void		aff_dragon(void *frac2)
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = ens2;
-	ft_putendl("dragon2");
 		print_ens(ens, frac);
-	ft_putendl("dragon3");
 		frac->a++;
 	}
-	ft_putendl("dragon4");
 	mlx_clear_window(frac->mlx, frac->win);
 	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 }
