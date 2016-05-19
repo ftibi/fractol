@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 12:48:26 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:55:08 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int		my_key_funct(int keycode, t_frac *frac)
 		frac->aff_frac(frac);
 	}
 	arrow_keys(frac, keycode);
+	change_iter(frac, keycode);
 	return (0);
 }
 
