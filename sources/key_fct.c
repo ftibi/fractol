@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:36:10 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 12:55:08 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 13:59:42 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	frac_reset(t_frac *frac)
 	frac->juliamove = 1;
 	frac->xpoint = 0;
 	frac->ypoint = 0;
+	frac->color = 0xFFFFFF;
 }
 
 int		my_key_funct(int keycode, t_frac *frac)
@@ -63,6 +64,7 @@ int		my_key_funct(int keycode, t_frac *frac)
 	}
 	arrow_keys(frac, keycode);
 	change_iter(frac, keycode);
+	change_color(frac, keycode);
 	return (0);
 }
 

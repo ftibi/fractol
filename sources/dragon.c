@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 16:25:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 13:08:51 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 13:54:22 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		print_ens(t_ens *ens, t_frac *frac)
 		x = (-frac->xmin + ens->rz) / q;
 		y = (-frac->ymin + ens->iz) / q;
 		if (x >= 0 && x < frac->size && y >= 0 && y < frac->size)
-			my_pixel_put_img(frac, x, y, 0xFFFFFF);
+			my_pixel_put_img(frac, x, y, frac->color);
 		ens = ens->next;
 	}
 }
