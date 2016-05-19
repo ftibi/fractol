@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 11:59:50 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:48:00 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void					aff_dragon(void *frac);
 
 int						my_mouse_funct(int button, int x, int y, t_frac *frac);
 int						my_key_funct(int keycode, t_frac *param);
+void					arrow_keys(t_frac *frac, int key);
 int						mouse_pos(int x, int y, t_frac *frac);
 t_frac					*zoom_frac(t_frac *frac);
 void					ft_error(char *str);
