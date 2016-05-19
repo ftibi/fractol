@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/19 12:54:43 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 13:13:30 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ struct					s_frac
 	double				juliax;
 	double				juliay;
 	int					juliamove;
+	int					endian;
 
 	t_frac_fct_ptr		*aff_frac;
 };
@@ -64,8 +65,8 @@ typedef struct s_frac	t_frac;
 double					ft_abs(double a);
 t_frac					*frac_init(char *ens, void *mlx, void *win, void *img);
 void					frac_display(char *av1);
-void					aff_frac_julia(void *frac);
-void					aff_frac_mandel(void *frac);
+void					aff_frac_julia(t_frac *frac);
+void					aff_frac_mandel(t_frac *frac);
 void					aff_dragon(void *frac);
 
 int						my_mouse_funct(int button, int x, int y, t_frac *frac);
@@ -87,7 +88,7 @@ typedef struct			s_ens
 }						t_ens;
 t_ens					*new_ens(double rz, double iz);
 
-void		my_pixel_put_img(t_frac *frac, int x, int y, int color);
-void	clear_data(char *data, int size, int bpp);
+void					my_pixel_put_img(t_frac *frac, int x, int y, int color);
+void					clear_data(char *data, int size, int bpp);
 
 #endif

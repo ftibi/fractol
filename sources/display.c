@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 18:24:02 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 20:03:44 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 13:05:38 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,18 @@ t_frac			*zoom_frac(t_frac *frac)
 
 void			frac_display(char *str)
 {
-	t_frac *frac;
-	int		endian = 1;
+	t_frac	*frac;
+	int		endian;
+	int		size_line;
 
+	endian = 1;
 	frac = frac_init(str, 0, 0, 0);
 	frac->mlx = mlx_init();
 	frac->win = mlx_new_window(frac->mlx, frac->size, frac->size, "fractol");
 	frac->img = mlx_new_image(frac->mlx, frac->size, frac->size);
-	int size_line = frac->size * frac->bpp / 8;
+	size_line = frac->size * frac->bpp / 8;
 	frac->data = mlx_get_data_addr(frac->img, &frac->bpp, &size_line, &endian);
 	frac->aff_frac(frac);
-	// mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 	mlx_key_hook(frac->win, my_key_funct, frac);
 	mlx_mouse_hook(frac->win, my_mouse_funct, frac);
 	mlx_hook(frac->win, 6, (1L << 6), mouse_pos, frac);
