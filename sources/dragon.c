@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 16:25:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/26 20:32:00 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:35:25 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,12 @@ void		print_ens(t_ens *ens, t_frac *frac)
 	{
 		x = (-frac->xmin + ens->rz) / q;
 		y = (-frac->ymin + ens->iz) / q;
-		mlx_pixel_put(frac->mlx, frac->win, x, y, 0xFFFFFF);
+		// ft_putnbr(x);
+		// ft_putchar(':');
+		// ft_putnbr(x);
+		// ft_putchar('\n');
+		if (x >= 0 && x < frac->size && y >= 0 && y < frac->size)
+			my_pixel_put_img(frac, x, y, 0xFFFFFF);
 		ens = ens->next;
 	}
 }
@@ -83,10 +88,12 @@ void		aff_dragon(void *frac2)
 	t_ens	*ens2;
 
 	ens = new_ens(0, 1);
-	ens1 = new_ens(0, 1);
-	ens2 = new_ens(0, 1);
+	// ens1 = new_ens(0, 1);
+	// ens2 = new_ens(0, 1);
 	frac = (t_frac*)frac2;
+	clear_data(frac->data, frac->size, frac->bpp);
 	frac->a = 0;
+	ft_putendl("dragon");
 	while (frac->a < frac->amax)
 	{
 		ens1 = dragon_un(ens);
@@ -96,7 +103,12 @@ void		aff_dragon(void *frac2)
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = ens2;
+	ft_putendl("dragon2");
 		print_ens(ens, frac);
+	ft_putendl("dragon3");
 		frac->a++;
 	}
+	ft_putendl("dragon4");
+	mlx_clear_window(frac->mlx, frac->win);
+	mlx_put_image_to_window(frac->mlx, frac->win, frac->img, 0, 0);
 }
