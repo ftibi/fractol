@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 11:34:04 by tfolly            #+#    #+#             */
-/*   Updated: 2016/05/18 20:16:21 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/19 11:59:50 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_frac					*zoom_frac(t_frac *frac);
 void					ft_error(char *str);
 void					in_loop(t_frac *frac, double x, double y);
 void					manuel(void);
+void					frac_reset(t_frac *frac);
 
 typedef struct			s_ens
 {
