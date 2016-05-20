@@ -18,11 +18,12 @@ CFLAGS = -Wall -Wextra -Werror
 
 CPPFLAGS = -I./includes -I./libft/includes
 
-MLXFLAGS = -L/usr/local/lib/ -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS = -L./minilibx_macos -I./minilibx_macos ./minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
 
 all: $(LIB) $(NAME)
 
 $(LIB):
+	make -C ./minilibx_macos
 	make -C ./libft
 	cp $(LIB) libft.a
 
